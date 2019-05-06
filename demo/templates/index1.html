@@ -1,0 +1,44 @@
+<html>
+{% extends 'header.html' %}
+<head><title>{% block title %}Movie{% endblock %}</title></head>
+<body>
+	{% block index %}
+<h1>{{m1.actor}}</h1>
+<h1>{{m1.actor_movie}}</h1>
+{% if error_message %}
+<strong>{{error_message}}</strong>
+{% endif %}
+<form action="{% url 'demo:favourite' m1.id %}" method="POST">
+	{% csrf_token %}
+	{% for song in m1.song_set.all %}
+	<input type="radio" id="song{{forloop.counter}}" name="song" value="{{song.id}}">
+	<label for = "song{{forloop.counter}}">
+		{{song.song_name}}
+		{% if song.is_favourite %}
+		<img src="http://i.imgur.com/b9b13Rd.png">
+		{% endif %}
+		
+	</label><br>
+	{% endfor %}
+	<input type="submit" value="favourite">
+</form>{% endblock %}</body></html>
+<!-- <html>
+<head><title></title></head>
+<body>
+<h1>{{m1.actor}}</h1>
+<h1>{{m1.actor_movie}}</h1>
+<ul>
+	{% for song in m1.song_set.all %}
+	<li>
+{{song.song_name}}---{{song.file_type}}</a>
+	</li>
+{% endfor %}
+</ul>		
+</body>
+</html> -->
+<!-- <html>
+<head><title></title></head>
+<body>
+{{m1}}	
+</body>
+</html> -->

@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		{%  extends 'header.html' %}
+		{%  block content %}
+		{%  if forms.errors %}
+		<p class="error">Sorry,Thats not a valid username or password.</p>
+		{%  endif %}
+		<table border="3" align="center">
+			<tr>
+				<td>
+					<form action="/auth/" method="post">{% csrf_token %}
+						<h2><u>Login form:</u></h2>
+						<label for="username">Username:</label>
+						<input type="text" name="username" value="" id="username">
+						<br><br>
+						<label for="password">Password:</label>
+						<input type="text" name="password" value="" id="password">
+						<br><br>
+				&nbsp;&nbsp;&nbsp;
+				<input type="submit" name="login" value="login"></form></td></tr>
+		</table>
+		{%  endblock %}
+	</body>
+</html>

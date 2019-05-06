@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+{% extends 'header.html' %}
+{% block content %}
+<table align="center" border="3" rules="none">
+	<tr>
+		<td colspan="3">
+	<form action="/register/" method="post">{% csrf_token %}
+		<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Registration form:</u></h2>
+		{{form}}
+		<td colspan="2">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="submit" value="Register"></td></form>
+</td></tr></table>
+{% endblock %}
+</body>
+</html>

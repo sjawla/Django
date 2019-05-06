@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+{% extends 'header.html' %}
+
+{% block content %}
+<table border="2" align="center">
+<tr>
+<td>
+<form method='POST' action=''>{% csrf_token %}
+<h2><u>Contact Form</u></h2>
+{{ form.as_p }}
+
+<input type='submit' value='Submit' />
+
+</form>
+</td>
+</tr>
+</table>
+{% endblock %} 
+</body>
+</html>
